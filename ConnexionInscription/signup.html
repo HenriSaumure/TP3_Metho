@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | My Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const passwordInput = document.getElementById('password');
+            const confirmInput = document.getElementById('confirm-password');
+            const lengthCheck = document.getElementById('length');
+            const uppercaseCheck = document.getElementById('uppercase');
+            const specialCheck = document.getElementById('special');
+            const submitBtn = document.getElementById('submit-btn');
+            
+            // Real-time password validation feedback
+            passwordInput.addEventListener('input', function() {
+                const password = passwordInput.value;
+                
+                // Check length
+                if(password.length >= 8) {
+                    lengthCheck.classList.add('valid');
+                } else {
+                    lengthCheck.classList.remove('valid');
+                }
+                
+                // Check uppercase
+                if(/[A-Z]/.test(password)) {
+                    uppercaseCheck.classList.add('valid');
+                } else {
+                    uppercaseCheck.classList.remove('valid');
+                }
+                
+                // Check special character
+                if(/[!@#$%^&*]/.test(password)) {
+                    specialCheck.classList.add('valid');
+                } else {
+                    specialCheck.classList.remove('valid');
+                }
+            });
+            
+            // Check password confirmation matches
+            confirmInput.addEventListener('input', function() {
+                if(passwordInput.value === confirmInput.value) {
+                    confirmInput.setCustomValidity('');
+                } else {
+                    confirmInput.setCustomValidity('Passwords do not match');
+                }
+            });
+            
+            // Form validation on submit
+            document.querySelector('form').addEventListener('submit', function(event) {
+                const password = passwordInput.value;
+                
+                // Check all requirements
+                const isLengthValid = password.length >= 8;
+                const isUppercaseValid = /[A-Z]/.test(password);
+                const isSpecialValid = /[!@#$%^&*]/.test(password);
+                
+                if(!isLengthValid || !isUppercaseValid || !isSpecialValid) {
+                    event.preventDefault();
+                    alert('Please ensure your password meets all requirements.');
+                }
+                
+                // Check passwords match
+                if(passwordInput.value !== confirmInput.value) {
+                    event.preventDefault();
+                    alert('Passwords do not match.');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="login-container register-container">
+        <div class="login-header">
+            <h1>Create Account</h1>
+            <p>Fill in the details to sign up</p>
+        </div>
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" required placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Create a password" 
+                       pattern="^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,})" 
+                       title="Password must contain at least 8 characters, 1 uppercase letter, and 1 special character">
+                <div class="password-requirements">
+                    <p>Password must contain:</p>
+                    <ul>
+                        <li id="length">At least 8 characters</li>
+                        <li id="uppercase">At least 1 uppercase letter</li>
+                        <li id="special">At least 1 special character</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required placeholder="Confirm your password">
+            </div>
+            <div class="terms-privacy">
+                <div class="remember-me">
+                    <input type="checkbox" id="agree" name="agree" required>
+                    <label for="agree">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                </div>
+            </div>
+            <button type="submit" class="login-button" id="submit-btn">Create Account</button>
+            <div class="signup-link">
+                Already have an account? <a href="login.html">Log in</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

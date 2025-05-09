@@ -1,0 +1,186 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Login Container */
+.login-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+}
+
+/* Registration container - slightly wider */
+.register-container {
+    max-width: 450px;
+}
+
+/* Header Styles */
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-header h1 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.login-header p {
+    color: #777;
+    font-size: 16px;
+}
+
+/* Form Group Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #E53E3E;
+    outline: none;
+}
+
+/* Remember Me and Forgot Password */
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input {
+    margin-right: 8px;
+}
+
+.forgot-password a {
+    color: #E53E3E;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+/* Password Requirements */
+.password-requirements {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #666;
+}
+
+.password-requirements p {
+    margin-bottom: 5px;
+}
+
+.password-requirements ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.password-requirements li {
+    margin-bottom: 3px;
+}
+
+.password-requirements li.valid {
+    color: #38A169;
+}
+
+.password-requirements li.valid::before {
+    content: "✓ ";
+}
+
+/* Terms and Privacy */
+.terms-privacy {
+    margin-bottom: 25px;
+}
+
+.terms-privacy a {
+    color: #E53E3E;
+    text-decoration: none;
+}
+
+.terms-privacy a:hover {
+    text-decoration: underline;
+}
+
+/* Login Button */
+.login-button {
+    width: 100%;
+    background-color: #E53E3E;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #C53030;
+}
+
+/* Sign Up Link */
+.signup-link {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #777;
+}
+
+.signup-link a {
+    color: #E53E3E;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 30px 20px;
+    }
+}
