@@ -1,7 +1,31 @@
-body {
-    font-family: Arial, sans-serif;
+/* Reset CSS */
+* {
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables pour les couleurs et polices */
+:root {
+    --primary-color: #e61c5d;
+    --secondary-color: #ff4d6d;
+    --dark-color: #333333;
+    --light-color: #ffffff;
+    --background-color: #f9f9f9;
+    --accent-color: #ff8fa3;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    font-family: var(--font-main);
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(230, 28, 93, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 77, 109, 0.05) 0%, transparent 40%);
+    min-height: 100vh;
+    /* cursor: none; Cacher le curseur par défaut */
 }
 
 .chat-container {
@@ -78,4 +102,88 @@ body {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+}
+
+/* Navigation */
+header {
+    background-color: var(--light-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 1.5rem;
+}
+
+.nav-links a {
+    color: var(--dark-color);
+    text-decoration: none;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-color);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after, .nav-links a.active::after {
+    width: 100%;
+}
+
+/* Logo et slogan */
+.logo-container {
+    text-align: center;
+    padding: 3rem 0;
+    background-color: var(--light-color);
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 0 10px rgba(230, 28, 93, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05) rotate(5deg);
+    filter: drop-shadow(0 0 15px rgba(230, 28, 93, 0.6));
+}
+
+.slogan {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(255, 77, 109, 0.2);
 }
