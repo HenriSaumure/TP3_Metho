@@ -21,20 +21,47 @@
         </nav>
     </header>
 
-    <div class="chat-container">
-        <div class="chat-header">
-            <div class="profile">
-                <img src="https://thispersondoesnotexist.com/" alt="Photo de profil" class="profile-pic">
-                <h2>John Doe</h2>
+    <main>
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="profile">
+                    <img src="https://thispersondoesnotexist.com/" alt="Photo de profil" class="profile-pic">
+                    <h2>John Doe</h2>
+                </div>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+            </div>
+            <div class="input-area">
+                <input type="text" id="message-input" placeholder="Tapez votre message...">
+                <button onclick="sendMessage()">Envoyer</button>
             </div>
         </div>
-        <div class="chat-messages" id="chat-messages">
+    </main>
+        
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>À propos d'AlienMeet</h4>
+                <p>Fondé en 2025, AlienMeet est pionnier dans les rencontres interespèces.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Liens utiles</h4>
+                <ul>
+                    <li><a href="#">Conditions d'utilisation</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>contact@alienmeet.com</p>
+                <p>Voie Lactée, Système Solaire, Planète Terre</p>
+            </div>
         </div>
-        <div class="input-area">
-            <input type="text" id="message-input" placeholder="Tapez votre message...">
-            <button onclick="sendMessage()">Envoyer</button>
+        <div class="legal">
+            <p>&copy; 2025 AlienMeet. Tous droits réservés. En utilisant ce site, vous acceptez notre juridiction interstellaire et les lois de la Fédération Galactique.</p>
         </div>
-    </div>
+    </footer>
     <script src="js/script.js"></script>
 </body>
 </html>
