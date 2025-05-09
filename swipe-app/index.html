@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlienMatch</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <h1 class="logo">Alien<span>Match</span></h1>
+        
+        <div class="swipe-area">
+            <div id="image-container">
+                <img draggable="false" id="current-image" src="" alt="Candidat extraterrestre">
+                <div class="bio-data">
+                    <div class="planet-tag">Planète Terre</div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="action-hints">
+            <div class="action-hint">
+                <div class="hint-icon dislike-color">✗</div>
+                <p>Glissez à gauche pour refuser</p>
+            </div>
+            <div class="action-hint">
+                <div class="hint-icon next-color">↑</div>
+                <p>Glissez vers le haut pour passer</p>
+            </div>
+            <div class="action-hint">
+                <div class="hint-icon like-color">♥</div>
+                <p>Glissez à droite pour accepter</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/swipe.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
