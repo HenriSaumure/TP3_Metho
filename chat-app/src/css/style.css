@@ -11,7 +11,23 @@ body {
     border-radius: 8px;
 }
 
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 .chat-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #075e54;
     color: white;
     padding: 15px;
