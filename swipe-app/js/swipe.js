@@ -1,8 +1,6 @@
 function initSwipeDetection() {
     const imageContainer = document.getElementById('image-container');
     const currentImage = document.getElementById('current-image');
-    const likeIndicator = document.getElementById('like-indicator');
-    const dislikeIndicator = document.getElementById('dislike-indicator');
     let startX, startY, endX, endY;
     let isDragging = false;
     let hasBeenDragged = false;
@@ -11,8 +9,8 @@ function initSwipeDetection() {
     const swipeThreshold = 100;
     const fadeThreshold = 150;
     const minDragDistance = 20;
-    const verticalThreshold = 100; // Seuil pour détecter un swipe vertical
-    const directionRatio = 1.5; // Le mouvement vertical doit être 1.5x plus grand que l'horizontal pour être considéré comme vertical
+    const verticalThreshold = 100;
+    const directionRatio = 1.5;
 
     // Function to handle mouse/touch start
     const handleStart = function(e) {
@@ -23,10 +21,6 @@ function initSwipeDetection() {
         startY = point.clientY;
         endX = startX;
         endY = startY;
-        
-        // Reset indicators
-        likeIndicator.classList.add('hidden');
-        dislikeIndicator.classList.add('hidden');
         
         // Reset transform and opacity
         imageContainer.style.transform = '';
@@ -60,15 +54,9 @@ function initSwipeDetection() {
         if (isVerticalMovement && deltaY < 0) {
             imageContainer.style.transform = `translateY(${deltaY}px)`;
             
-            // Effet de fade basé sur la distance verticale
-            if (Math.abs(deltaY) > fadeThreshold) {
-                const opacity = Math.max(0.3, 1 - (Math.abs(deltaY) - fadeThreshold) / 200);
-                currentImage.style.opacity = opacity;
-            }
+            // Suppression de l'effet de fade
+            currentImage.style.opacity = 1;
             
-            // Cacher les indicateurs de like/dislike pour le mouvement vertical
-            likeIndicator.classList.add('hidden');
-            dislikeIndicator.classList.add('hidden');
             imageContainer.classList.remove('like-border');
             imageContainer.classList.remove('dislike-border');
         } 
@@ -80,26 +68,17 @@ function initSwipeDetection() {
             // Déplacer la carte pendant que l'utilisateur glisse
             imageContainer.style.transform = `translateX(${deltaX}px) rotate(${rotation}deg)`;
             
-            // Effet de fade basé sur la distance
-            if (Math.abs(deltaX) > fadeThreshold) {
-                const opacity = Math.max(0.3, 1 - (Math.abs(deltaX) - fadeThreshold) / 200);
-                currentImage.style.opacity = opacity;
-            }
+            // Suppression de l'effet de fade
+            currentImage.style.opacity = 1;
             
-            // Afficher les indicateurs en fonction de la direction du glissement
+            // Afficher les indicateurs visuels en fonction de la direction du glissement
             if (deltaX > swipeThreshold/2) {
-                likeIndicator.classList.remove('hidden');
-                dislikeIndicator.classList.add('hidden');
                 imageContainer.classList.add('like-border');
                 imageContainer.classList.remove('dislike-border');
             } else if (deltaX < -swipeThreshold/2) {
-                dislikeIndicator.classList.remove('hidden');
-                likeIndicator.classList.add('hidden');
                 imageContainer.classList.add('dislike-border');
                 imageContainer.classList.remove('like-border');
             } else {
-                likeIndicator.classList.add('hidden');
-                dislikeIndicator.classList.add('hidden');
                 imageContainer.classList.remove('like-border');
                 imageContainer.classList.remove('dislike-border');
             }
@@ -131,21 +110,17 @@ function initSwipeDetection() {
             // Swipe vers le haut - animation de sortie par le haut
             imageContainer.style.transition = 'all 0.5s ease';
             imageContainer.style.transform = 'translateY(-' + window.innerHeight + 'px)';
-            currentImage.style.transition = 'opacity 0.5s ease';
-            currentImage.style.opacity = 0;
+            // Suppression du fade
+            currentImage.style.opacity = 1;
             
             setTimeout(() => {
                 nextImage();
                 
                 // Réinitialiser après l'animation
                 imageContainer.style.transition = '';
-                currentImage.style.transition = '';
-                currentImage.style.opacity = 1;
+                imageContainer.style.opacity = 1;
                 imageContainer.style.transform = '';
                 
-                // Réinitialiser les classes et indicateurs
-                likeIndicator.classList.add('hidden');
-                dislikeIndicator.classList.add('hidden');
                 imageContainer.classList.remove('like-border');
                 imageContainer.classList.remove('dislike-border');
             }, 500);
@@ -156,25 +131,19 @@ function initSwipeDetection() {
             const direction = deltaX > 0 ? 1 : -1;
             const finalX = direction * window.innerWidth;
             
-            // Animation de sortie avec fondu
+            // Animation de sortie sans fondu
             imageContainer.style.transition = 'all 0.5s ease';
             imageContainer.style.transform = `translateX(${finalX}px) rotate(${direction * 45}deg)`;
-            currentImage.style.transition = 'opacity 0.5s ease';
-            currentImage.style.opacity = 0;
+            // Suppression du fade
+            currentImage.style.opacity = 1;
             
-            // Traiter l'action de swipe
+            // Traiter l'action de swipe - mais NE PAS réinitialiser l'animation
             setTimeout(() => {
                 if (deltaX > 0) {
                     handleSwipeAction('right');
                 } else {
                     handleSwipeAction('left');
                 }
-                
-                // Réinitialiser après l'animation
-                imageContainer.style.transition = '';
-                currentImage.style.transition = '';
-                currentImage.style.opacity = 1;
-                imageContainer.style.transform = '';
             }, 500);
         } else {
             // Pas assez de mouvement ou mouvement ambigu, retour à la position initiale avec animation

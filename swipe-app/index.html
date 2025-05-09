@@ -3,39 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AlienMatch</title>
+    <title>AlienMeet - Swipe</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="app-container">
-        <h1 class="logo">Alien<span>Match</span></h1>
-        
-        <div class="swipe-area">
-            <div id="image-container">
-                <img draggable="false" id="current-image" src="" alt="Candidat extraterrestre">
-                <div class="bio-data">
-                    <div class="planet-tag">Planète Terre</div>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="#">Profil</a></li>
+                    <li><a href="#">Connexion</a></li>
+                    <li><a href="./index.html" class="active">Rencontres</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="app-container">
+            <div class="swipe-area">
+                <div id="image-container">
+                    <img draggable="false" id="current-image" src="" alt="Candidat extraterrestre">
+                    <div class="bio-data">
+                        <div class="planet-tag">Planète Terre</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="action-hints">
+                <div class="action-hint">
+                    <div class="hint-icon dislike-color">✗</div>
+                    <p>Glissez à gauche pour refuser</p>
+                </div>
+                <div class="action-hint">
+                    <div class="hint-icon next-color">↑</div>
+                    <p>Glissez vers le haut pour passer</p>
+                </div>
+                <div class="action-hint">
+                    <div class="hint-icon like-color">♥</div>
+                    <p>Glissez à droite pour accepter</p>
                 </div>
             </div>
         </div>
-        
-        <div id="action-hints">
-            <div class="action-hint">
-                <div class="hint-icon dislike-color">✗</div>
-                <p>Glissez à gauche pour refuser</p>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>À propos d'AlienMeet</h4>
+                <p>Fondé en 2025, AlienMeet est pionnier dans les rencontres interespèces.</p>
             </div>
-            <div class="action-hint">
-                <div class="hint-icon next-color">↑</div>
-                <p>Glissez vers le haut pour passer</p>
+            <div class="footer-section">
+                <h4>Liens utiles</h4>
+                <ul>
+                    <li><a href="#">Conditions d'utilisation</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
             </div>
-            <div class="action-hint">
-                <div class="hint-icon like-color">♥</div>
-                <p>Glissez à droite pour accepter</p>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>contact@alienmeet.com</p>
+                <p>Voie Lactée, Système Solaire, Planète Terre</p>
             </div>
         </div>
-    </div>
-    
+        <div class="legal">
+            <p>&copy; 2025 AlienMeet. Tous droits réservés.</p>
+        </div>
+    </footer>
+
     <script src="js/swipe.js"></script>
     <script src="js/app.js"></script>
 </body>

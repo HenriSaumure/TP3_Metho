@@ -1,62 +1,152 @@
+/* Variables pour les couleurs et polices */
 :root {
-    --primary-color: #0ea5e9;
-    --secondary-color: #8b5cf6;
-    --accent-color: #6366f1;
+    --primary-color: #e61c5d;
+    --secondary-color: #ff4d6d;
+    --dark-color: #333333;
+    --light-color: #ffffff;
+    --background-color: #f9f9f9;
+    --accent-color: #ff8fa3;
     --like-color: #10b981;
     --dislike-color: #ef4444;
     --next-color: #f59e0b;
-    --bg-color: #f0f9ff;
-    --card-bg: #ffffff;
-    --text-color: #334155;
-    --text-secondary: #64748b;
-    --border-color: #e2e8f0;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
+    font-family: var(--font-main);
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(230, 28, 93, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 77, 109, 0.05) 0%, transparent 40%);
+    min-height: 100vh;
+}
+
+/* Ajout des styles de navigation et footer du site principal */
+/* Navigation */
+header {
+    background-color: var(--light-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.nav-links {
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, var(--bg-color), #e0f2fe);
-    color: var(--text-color);
-    font-family: 'Exo', sans-serif;
-    overflow-x: hidden;
+    list-style: none;
 }
 
-.app-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 500px;
-    padding: 1.5rem;
-    gap: 1.5rem;
+.nav-links li {
+    margin: 0 1.5rem;
 }
 
-.logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2rem;
-    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
-    margin-bottom: 1rem;
-}
-
-.logo span {
-    color: var(--secondary-color);
-}
-
-.swipe-area {
+.nav-links a {
+    color: var(--dark-color);
+    text-decoration: none;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
     position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-color);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after, .nav-links a.active::after {
     width: 100%;
+}
+
+/* Footer */
+footer {
+    background-color: #fafafa;
+    color: var(--dark-color);
+    padding: 3rem 0 1rem;
+    border-top: 1px solid rgba(230, 28, 93, 0.1);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem 2rem;
+    border-bottom: 1px solid rgba(230, 28, 93, 0.1);
+}
+
+.footer-section h4 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.footer-section ul li:hover {
+    transform: translateX(5px);
+}
+
+.footer-section a {
+    color: var(--dark-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: var(--primary-color);
+}
+
+.legal {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Styles spécifiques à l'application de swipe */
+.app-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 1.5rem;
 }
 
 #image-container {
@@ -65,13 +155,10 @@ body {
     position: relative;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 
-        0 10px 25px rgba(0, 0, 0, 0.1),
-        0 0 10px rgba(99, 102, 241, 0.1);
-    transition: all 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    background: var(--card-bg);
+    box-shadow: 0 10px 30px rgba(230, 28, 93, 0.2);
+    transition: all 0.3s ease;
+    background: var(--light-color);
     cursor: grab;
-    border: 1px solid var(--border-color);
 }
 
 #image-container:before {
@@ -84,6 +171,30 @@ body {
     background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 40%);
     z-index: 1;
     pointer-events: none;
+}
+
+#image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+#image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    transition: background-color 0.3s ease;
+}
+
+#image-container.swiping-left::before {
+    background-color: rgba(239, 68, 68, 0.2); /* Rouge */
+}
+
+#image-container.swiping-right::before {
+    background-color: rgba(16, 185, 129, 0.2); /* Vert */
 }
 
 #current-image {
@@ -174,7 +285,33 @@ body {
     color: var(--text-secondary);
 }
 
-@media (max-width: 500px) {
+/* Animations pour les swipes */
+@keyframes swipeLeft {
+    to {
+        transform: translateX(-200%) rotate(-30deg);
+        background-color: rgba(239, 68, 68, 0.2); /* Rouge */
+    }
+}
+
+@keyframes swipeRight {
+    to {
+        transform: translateX(200%) rotate(30deg);
+        background-color: rgba(16, 185, 129, 0.2); /* Vert */
+    }
+}
+
+/* Classe pour l'animation de swipe gauche */
+.swipe-left {
+    animation: swipeLeft 0.5s ease-out forwards;
+}
+
+/* Classe pour l'animation de swipe droite */
+.swipe-right {
+    animation: swipeRight 0.5s ease-out forwards;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
     #image-container {
         height: 400px;
     }
