@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+        }
+        .profile-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #ffe6e6; /* Light pink */
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #ff4d4d; /* Bright red border */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .profile-header {
+            text-align: center;
+            position: relative;
+        }
+        .profile-photo img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #ff4d4d; /* Red border for profile picture */
+            margin-bottom: 10px;
+        }
+        h1 {
+            color: #ff4d4d; /* Red for the main title */
+        }
+        p {
+            color: #333; /* Standard text color */
+        }
+        .profile-section {
+            margin: 20px 0;
+        }
+        .profile-section h3 {
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            color: #ff4d4d; /* Red for section titles */
+            border-bottom: 2px solid #ff4d4d; /* Red underline */
+        }
+        .hearts {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 40px;
+            color: #ff4d4d; /* Red hearts */
+        }
+        .profile-container::before {
+            content: "❤️";
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            font-size: 40px;
+            color: #ff4d4d;
+        }
+        .profile-container::after {
+            content: "❤️";
+            position: absolute;
+            bottom: -15px;
+            right: -15px;
+            font-size: 40px;
+            color: #ff4d4d;
+        }
+        .photos img {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            border: 2px solid #ff4d4d;
+            border-radius: 10px;
+        }
+        button {
+            background-color: #ff4d4d;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="hearts">❤️</div>
+            <div class="profile-photo">
+                <img src="images/467399159_10233135758591824_8370814502020202997_n.jpg" alt="Profile Photo">
+            </div>
+            <h1>Username</h1>
+            <p>Species: Alien | Age: 120</p>
+        </div>
+
+        <div class="profile-section">
+            <h3>Bio</h3>
+            <p>This is the user's bio. It tells you a little about them!</p>
+        </div>
+
+        <div class="profile-section">
+            <h3>Species-Specific Details</h3>
+            <p><strong>Planet of Origin:</strong> Mars</p>
+            <p><strong>Number of Tentacles:</strong> 6</p>
+            <p><strong>Preferred Atmosphere:</strong> Carbon Dioxide</p>
+            <p><strong>Communication Style:</strong> Telepathy</p>
+        </div>
+
+        <div class="profile-section">
+            <h3>Preferences</h3>
+            <p><strong>Preferred Species:</strong> Both</p>
+            <p><strong>Age Range:</strong> 100-300</p>
+            <p><strong>Gender Preference:</strong> Any</p>
+        </div>
+
+        <div class="profile-section photos">
+            <h3>Photos</h3>
+            <img src="photo1_url.jpg" alt="Photo 1">
+            <img src="photo2_url.jpg" alt="Photo 2">
+        </div>
+
+        <div class="profile-section">
+            <button>Send Message ❤️</button>
+        </div>
+    </div>
+</body>
+</html>
