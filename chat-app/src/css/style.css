@@ -52,7 +52,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #075e54;
+    background-color: var(--primary-color);
     color: white;
     padding: 15px;
     text-align: center;
@@ -97,7 +97,7 @@ body {
 
 .input-area button {
     padding: 10px 20px;
-    background-color: #075e54;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     border-radius: 4px;
