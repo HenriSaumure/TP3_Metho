@@ -183,12 +183,6 @@ body {
     text-decoration: underline;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 480px) {
-    .login-container {
-        padding: 30px 20px;
-    }
-}
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -236,30 +230,9 @@ body {
     width: 100%;
 }
 
-/* Logo et slogan */
-.logo-container {
-    text-align: center;
-    padding: 3rem 0;
-    background-color: var(--light-color);
-}
-
-.logo {
-    width: 150px;
-    height: auto;
-    margin-bottom: 1.5rem;
-    filter: drop-shadow(0 0 10px rgba(230, 28, 93, 0.3));
-    transition: transform 0.3s ease;
-}
-
-.logo:hover {
-    transform: scale(1.05) rotate(5deg);
-    filter: drop-shadow(0 0 15px rgba(230, 28, 93, 0.6));
-}
-
-.slogan {
-    color: var(--primary-color);
-    font-size: 1.8rem;
-    font-weight: 300;
-    letter-spacing: 2px;
-    text-shadow: 0 0 15px rgba(255, 77, 109, 0.2);
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 30px 20px;
+    }
 }
